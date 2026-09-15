@@ -44,6 +44,8 @@ message Display {
       [(.wfa.measurement.api.v2alpha.template_field) = {
         display_name: "Viewable 50%+"
         reporting_features: IMPRESSION_QUALIFICATION
+        reporting_features: FILTERABLE
+        reporting_features: GROUPABLE
         version_added: 1
       }];
   // 100% of the ad was displayed in the browser for at least
