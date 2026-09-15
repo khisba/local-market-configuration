@@ -75,6 +75,8 @@ message Common {
   // the EDP that originated the event.
   oneof edp_specific {
     Meta meta = 4;
+    Google google = 9;
+    LinearTV linear_tv = 10;
   }
 
   // The type of device that an event could be viewed on.
@@ -181,5 +183,14 @@ message Common {
         reporting_features: FILTERABLE
         reporting_features: GROUPABLE
         version_added: 4
+      }];
+
+  bool mrc_accredited = 8
+      [(.wfa.measurement.api.v2alpha.template_field) = {
+        display_name: "MRC Accredited"
+        reporting_features: IMPRESSION_QUALIFICATION
+        reporting_features: FILTERABLE
+        reporting_features: GROUPABLE
+        version_added: 5
       }];
 }
