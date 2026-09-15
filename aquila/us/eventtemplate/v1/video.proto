@@ -95,6 +95,8 @@ message Video {
       [(.wfa.measurement.api.v2alpha.template_field) = {
         display_name: "Viewable 100%"
         reporting_features: IMPRESSION_QUALIFICATION
+        reporting_features: FILTERABLE
+        reporting_features: GROUPABLE
         version_added: 1
       }];
 }
