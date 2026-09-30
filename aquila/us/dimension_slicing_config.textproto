@@ -1,0 +1,25 @@
+# proto-file: wfa/measurement/config/reporting/dimension_slicing_config.proto
+# proto-message: DimensionSlicingConfig
+
+default_field_slicing_policy {
+  not_applicable_handling: COMPUTE
+  not_supported_handling: COMPUTE
+}
+
+field_slicing_policies {
+  field_path: "common.us_state"
+  not_applicable_handling: COMPUTE
+  not_supported_handling: COMPUTE
+}
+
+field_slicing_policies {
+  field_path: "common.parental_status"
+  not_applicable_handling: COMPUTE
+  not_supported_handling: COMPUTE
+}
+
+field_slicing_policies {
+  field_path: "common.cross_media_mrc_status"
+  not_applicable_handling: COMPUTE
+  not_supported_handling: COMPUTE
+}

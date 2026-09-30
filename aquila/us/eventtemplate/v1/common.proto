@@ -182,4 +182,36 @@ message Common {
         reporting_features: GROUPABLE
         version_added: 4
       }];
+
+  // MRC viewability status. Virtual: resolved at report time from the
+  // media-specific viewability fields. Never populated by a DataProvider.
+  enum MrcStatus {
+    MRC_STATUS_UNSPECIFIED = 0;
+    MEETS_MRC = 1;
+    DOES_NOT_MEET_MRC = 2;
+  }
+
+  // MRC status under the cross-media standard. Video must have 100% of pixels
+  // in-view for at least 2 continuous seconds; display must have at least 50%
+  // of pixels in-view for at least 1 continuous second.
+  MrcStatus cross_media_mrc_status = 8
+      [(.wfa.measurement.api.v2alpha.template_field) = {
+        display_name: "MRC Status (Cross-Media)"
+        population_attribute: false
+        virtual: true
+        reporting_features: GROUPABLE
+        version_added: 5
+      }];
+
+  // MRC status under the digital standard. Video must have at least 50% of
+  // pixels in-view for at least 2 continuous seconds; display must have at
+  // least 50% of pixels in-view for at least 1 continuous second.
+  MrcStatus digital_mrc_status = 9
+      [(.wfa.measurement.api.v2alpha.template_field) = {
+        display_name: "MRC Status (Digital)"
+        population_attribute: false
+        virtual: true
+        reporting_features: GROUPABLE
+        version_added: 5
+      }];
 }

@@ -1,0 +1,116 @@
+# proto-file: wfa/measurement/config/reporting/virtual_dimension_config.proto
+# proto-message: VirtualDimensionConfig
+
+# Cross-media MRC: video must be 100% viewable.
+virtual_field_resolutions {
+  field_path: "common.cross_media_mrc_status"
+
+  value_resolutions {
+    enum_value: "MEETS_MRC"
+    resolution_specs {
+      media_type: VIDEO
+      filters {
+        terms {
+          path: "video.viewable_100_percent"
+          value {
+            bool_value: true
+          }
+        }
+      }
+    }
+    resolution_specs {
+      media_type: DISPLAY
+      filters {
+        terms {
+          path: "display.viewable_50_percent_plus"
+          value {
+            bool_value: true
+          }
+        }
+      }
+    }
+  }
+
+  value_resolutions {
+    enum_value: "DOES_NOT_MEET_MRC"
+    resolution_specs {
+      media_type: VIDEO
+      filters {
+        terms {
+          path: "video.viewable_100_percent"
+          value {
+            bool_value: false
+          }
+        }
+      }
+    }
+    resolution_specs {
+      media_type: DISPLAY
+      filters {
+        terms {
+          path: "display.viewable_50_percent_plus"
+          value {
+            bool_value: false
+          }
+        }
+      }
+    }
+  }
+}
+
+# Digital MRC: video need only be 50%+ viewable.
+virtual_field_resolutions {
+  field_path: "common.digital_mrc_status"
+
+  value_resolutions {
+    enum_value: "MEETS_MRC"
+    resolution_specs {
+      media_type: VIDEO
+      filters {
+        terms {
+          path: "video.viewable_50_percent_plus"
+          value {
+            bool_value: true
+          }
+        }
+      }
+    }
+    resolution_specs {
+      media_type: DISPLAY
+      filters {
+        terms {
+          path: "display.viewable_50_percent_plus"
+          value {
+            bool_value: true
+          }
+        }
+      }
+    }
+  }
+
+  value_resolutions {
+    enum_value: "DOES_NOT_MEET_MRC"
+    resolution_specs {
+      media_type: VIDEO
+      filters {
+        terms {
+          path: "video.viewable_50_percent_plus"
+          value {
+            bool_value: false
+          }
+        }
+      }
+    }
+    resolution_specs {
+      media_type: DISPLAY
+      filters {
+        terms {
+          path: "display.viewable_50_percent_plus"
+          value {
+            bool_value: false
+          }
+        }
+      }
+    }
+  }
+}
