@@ -25,9 +25,12 @@ import "wfa/measurement/api/v2alpha/event_annotations.proto";
 option java_package = "org.halo_cmm.aquila.us.eventtemplate.v1";
 option java_multiple_files = true;
 
+// Version history:
+//   5: Split `Common.age_group` YEARS_18_TO_34 into YEARS_18_TO_20 and
+//      YEARS_21_TO_34.
 message Event {
   option (.wfa.measurement.api.v2alpha.event) = {
-    current_version: 4
+    current_version: 5
   };
 
   Common common = 1;
