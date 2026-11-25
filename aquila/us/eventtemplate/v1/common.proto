@@ -46,9 +46,13 @@ message Common {
 
   enum AgeGroup {
     AGE_GROUP_UNSPECIFIED = 0;
-    YEARS_18_TO_34 = 1;
+    // Replaced by YEARS_18_TO_20 and YEARS_21_TO_34.
+    reserved 1;
+    reserved "YEARS_18_TO_34";
     YEARS_35_TO_54 = 2;
     YEARS_55_PLUS = 3;
+    YEARS_18_TO_20 = 4;
+    YEARS_21_TO_34 = 5;
   }
 
   AgeGroup age_group = 2 [(.wfa.measurement.api.v2alpha.template_field) = {
