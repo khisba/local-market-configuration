@@ -182,4 +182,21 @@ message Common {
         reporting_features: GROUPABLE
         version_added: 4
       }];
+
+  // Whether a person is of US legal drinking age (21 years or older).
+  //
+  // This overlaps with `age_group`: `YEARS_35_TO_54` and `YEARS_55_PLUS`
+  // always imply `AGE_21_PLUS`, while `YEARS_18_TO_34` may be either value.
+  enum Age21Plus {
+    AGE_21_PLUS_UNSPECIFIED = 0;
+    UNDER_21 = 1;
+    AGE_21_PLUS = 2;
+  }
+  Age21Plus age21_plus = 8 [(.wfa.measurement.api.v2alpha.template_field) = {
+    display_name: "Age 21+"
+    population_attribute: true
+    reporting_features: FILTERABLE
+    reporting_features: GROUPABLE
+    version_added: 5
+  }];
 }
